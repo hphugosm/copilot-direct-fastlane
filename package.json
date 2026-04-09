@@ -1,0 +1,21 @@
+{
+  "name": "copilot-direct-fastlane",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "check": "node ./scripts/check.mjs",
+    "build": "vite build",
+    "git:push": "node ./scripts/git-push.mjs",
+    "publish": "node ./scripts/publish.mjs",
+    "db:init": "node ./scripts/db-init.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.8",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  }
+}
