@@ -3,29 +3,124 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Copilot Direct Fastlane</title>
-    <link rel="stylesheet" href="./style.css" />
+    <meta
+      name="description"
+      content="Moderni prezentačni web o Olomouci s památkami, zajímavostmi, galerií a zdroji."
+    />
+    <title>Olomouc | Město baroka, studentů a živého centra Moravy</title>
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <main class="container">
-      <h1>Copilot Direct Fastlane MVP</h1>
-      <p>Minimalni single-page demo s jednoduchym Supabase read/write.</p>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="brand" href="./index.html">Olomouc</a>
+        <nav class="site-nav" aria-label="Hlavní navigace">
+          <a class="is-active" href="./index.html">Domů</a>
+          <a href="./pamatky.html">Památky</a>
+          <a href="./zajimavosti.html">Zajímavosti</a>
+          <a href="./galerie.html">Galerie</a>
+          <a href="./faq.html">FAQ</a>
+          <a href="./sources.html">Sources</a>
+        </nav>
+      </div>
+    </header>
 
-      <section class="card">
-        <h2>Pridat zaznam</h2>
-        <form id="item-form">
-          <input id="item-input" name="text" placeholder="Napis kratky zaznam" required maxlength="140" />
-          <button type="submit">Ulozit</button>
-        </form>
-        <p id="status"></p>
+    <main>
+      <section class="hero">
+        <div class="shell hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Olomouc / Morava / UNESCO</p>
+            <h1>Město, které spojuje baroko, univerzitu a každodenní život bez turistické pózy.</h1>
+            <p class="lead">
+              Olomouc má kompaktní historické centrum, silnou studentskou energii a několik
+              památek, které jsou malé rozlohou, ale velké významem. Je to město, které funguje
+              jako skutečné město, ne jako kulisa.
+            </p>
+            <div class="hero-actions">
+              <a class="button button-primary" href="./pamatky.html">Prozkoumat památky</a>
+              <a class="button button-secondary" href="./galerie.html">Otevřít galerii</a>
+            </div>
+            <div class="hero-points">
+              <div>
+                <strong>1</strong>
+                <span>UNESCO sloup Nejsvětější Trojice</span>
+              </div>
+              <div>
+                <strong>2. nejstarší</strong>
+                <span>univerzita v Česku</span>
+              </div>
+              <div>
+                <strong>6</strong>
+                <span>barokních kašen v centru</span>
+              </div>
+            </div>
+          </div>
+
+          <figure class="hero-figure">
+            <img src="assets/images/olomouc-panorama.jpg" alt="Pohled na Olomouc shora se zastavěným historickým centrem" />
+            <figcaption>Panorama města ukazuje kompaktní historické jádro i okolní zelené okraje.</figcaption>
+          </figure>
+        </div>
       </section>
 
-      <section class="card">
-        <h2>Posledni zaznamy</h2>
-        <ul id="items"></ul>
+      <section class="section shell">
+        <div class="section-heading">
+          <p class="eyebrow">Proč Olomouc</p>
+          <h2>Krátké, konkrétní důvody, proč město funguje.</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="card">
+            <h3>Historické centrum</h3>
+            <p>
+              Horní náměstí, radnice, sloup Nejsvětější Trojice a barokní fontány tvoří celek,
+              který je čitelný na první pohled a dobře se prochází pěšky.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Studentské město</h3>
+            <p>
+              Univerzita drží město živé přes den i večer. Nejde jen o památky, ale o skutečný
+              městský rytmus, služby a kulturu.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Moravská identita</h3>
+            <p>
+              Olomouc má vlastní charakter: baroko, církevní dědictví, pevnostní minulost i
+              současný klid bez přehnané turistické masy.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell split-block">
+        <div>
+          <p class="eyebrow">Přehled</p>
+          <h2>Co v tomhle webu najdeš.</h2>
+          <p>
+            Každá sekce jde rovnou na věc. Památky shrnují hlavní místa, zajímavosti dávají městu
+            kontext, galerie ukazuje skutečné fotky a zdroje drží vše dohromady.
+          </p>
+        </div>
+        <div class="summary-list">
+          <a href="./pamatky.html"><span>Památky</span><strong>Sloup, orloj, katedrála, městské dominanty</strong></a>
+          <a href="./zajimavosti.html"><span>Zajímavosti</span><strong>Fakta, čísla a drobné detaily, které si zapamatuješ</strong></a>
+          <a href="./galerie.html"><span>Galerie</span><strong>Lokální fotky uložené přímo v repu</strong></a>
+        </div>
+      </section>
+
+      <section class="section shell cta-panel">
+        <p class="eyebrow">Shrnutí</p>
+        <h2>Olomouc je přesně ten typ města, kde se dobře dělá krátký výlet i delší pobyt.</h2>
+        <p>
+          Pokud chceš město s konkrétním obsahem, historickým centrem a přirozenou atmosférou,
+          Olomouc je silná volba. Na dalších stránkách je všechno rozdělené prakticky a bez řečí navíc.
+        </p>
       </section>
     </main>
 
-    <script type="module" src="./main.js"></script>
+    <footer class="site-footer shell">
+      <p>Olomouc. Přehledný prezentační web s lokálními fotkami a zdroji.</p>
+    </footer>
   </body>
 </html>

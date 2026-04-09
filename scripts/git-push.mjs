@@ -1,6 +1,10 @@
 import { execSync } from "node:child_process";
+import { config } from "dotenv";
+
+config();
 
 const commitMessage = process.argv.slice(2).join(" ").trim() || "chore: update mvp";
+const token = process.env.GITHUB_TOKEN;
 
 const run = (command, allowFail = false) => {
   try {
@@ -23,6 +27,11 @@ if (hasChanges) {
 }
 
 const branch = run("git rev-parse --abbrev-ref HEAD");
-run(`git push origin ${branch}`);
+if (token) {
+  const auth = Buffer.from(`x-access-token:${token}`).toString("base64");
+  run(`git -c http.extraheader="AUTHORIZATION: basic ${auth}" push -u origin ${branch}`);
+} else {
+  run(`git push origin ${branch}`);
+}
 
 console.log(`GIT_PUSH_OK on branch ${branch}`);

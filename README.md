@@ -1,50 +1,61 @@
 # copilot-direct-fastlane
 
-Minimalni MVP vedle orchestratoru: single-page web + jednoduche Supabase read/write + GitHub Pages publish.
+Moderní multi-page web o Olomouci s lokálními fotkami, přehlednými zdroji a deployem na GitHub Pages.
 
-## 1) Setup
+## Co projekt obsahuje
 
-1. Zkopiruj `.env.example` do `.env`
-2. Vypln hodnoty pro GitHub a Supabase
-3. Nainstaluj zavislosti
+- `index.html`, `pamatky.html`, `zajimavosti.html`, `galerie.html`, `faq.html`, `sources.html`
+- lokální fotky v `public/assets/images`
+- sdílený styl v `src/styles.css`
+- Pages workflow v `.github/workflows/pages.yml`
+
+## Spuštění
+
+1. Zkopíruj `.env.example` do `.env`
+2. Dopln GitHub a Supabase údaje
+3. Nainstaluj závislosti
 
 ```bash
 npm install
 ```
 
-## 2) Local run
+4. Spusť web
 
 ```bash
 npm run dev
 ```
 
-## 3) Check
+## Check
 
 ```bash
 npm run check
 ```
 
-## 4) Supabase init + read/write test
+## Supabase read/write
 
-1. Spust SQL v `supabase/init.sql` v Supabase SQL editoru.
-2. Pak spust:
+1. Spusť SQL z `supabase/init.sql` v Supabase SQL editoru.
+2. Pak spusť:
 
 ```bash
 npm run db:init
 ```
 
-Skript udela insert + read test do tabulky `mvp_items`.
+Skript udělá insert a následný read test do tabulky `mvp_items`.
 
-## 5) Git push
-
-```bash
-npm run git:push -- "feat: first mvp"
-```
-
-## 6) Publish GitHub Pages
+## GitHub Pages
 
 ```bash
 npm run publish
 ```
 
-Workflow v `.github/workflows/pages.yml` nasadi obsah `dist` na GitHub Pages.
+Repo se buildí do `dist` a workflow nasazuje obsah na GitHub Pages.
+
+Aktuální URL:
+
+https://hphugosm.github.io/copilot-direct-fastlane/
+
+## Obrázky
+
+Použité fotografie jsou stažené z Wikimedia Commons a uložené lokálně v `public/assets/images`.
+
+Zdrojový přehled je na stránce `sources.html`.
