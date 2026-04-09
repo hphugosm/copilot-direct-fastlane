@@ -18,32 +18,30 @@ if (!token || !owner) {
 run("npm run build");
 run('npm run git:push -- "deploy: publish pages"');
 
-const response = await fetch(`https://api.github.com/repos/${owner}/${repo}/pages`, {
-  method: "POST",
+const requestOptions = {
+  method: "PUT",
   headers: {
     Authorization: `Bearer ${token}`,
     Accept: "application/vnd.github+json",
     "X-GitHub-Api-Version": "2022-11-28"
   },
-  body: JSON.stringify({ source: { branch: "main", path: "/" } })
-});
+  body: JSON.stringify({ build_type: "workflow" })
+};
+
+let response = await fetch(`https://api.github.com/repos/${owner}/${repo}/pages`, requestOptions);
 
 if (!response.ok) {
-  const secondTry = await fetch(`https://api.github.com/repos/${owner}/${repo}/pages`, {
-    method: "PUT",
-    headers: {
-      Authorization: `Bearer ${token}`,
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28"
-    },
-    body: JSON.stringify({ source: { branch: "main", path: "/" } })
+  response = await fetch(`https://api.github.com/repos/${owner}/${repo}/pages`, {
+    ...requestOptions,
+    method: "POST"
   });
 
-  if (!secondTry.ok) {
-    const details = await secondTry.text();
+  if (!response.ok) {
+    const details = await response.text();
     console.error("GitHub Pages API failed:", details);
     process.exit(1);
   }
 }
 
-console.log(`PUBLISH_OK https://${owner}.github.io/${repo}/`);
+const pageInfo = await response.json();
+console.log(`PUBLISH_OK ${pageInfo.html_url || `https://${owner}.github.io/${repo}/`}`);
