@@ -43,5 +43,12 @@ if (!response.ok) {
   }
 }
 
-const pageInfo = await response.json();
+const pageInfoResponse = await fetch(`https://api.github.com/repos/${owner}/${repo}/pages`, {
+  headers: {
+    Authorization: `Bearer ${token}`,
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28"
+  }
+});
+const pageInfo = await pageInfoResponse.json();
 console.log(`PUBLISH_OK ${pageInfo.html_url || `https://${owner}.github.io/${repo}/`}`);
