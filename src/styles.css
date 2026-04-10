@@ -397,6 +397,34 @@ h3 {
   margin-top: 1.4rem;
 }
 
+.photo-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1.35rem;
+}
+
+.inline-photo {
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow);
+  animation: fade-up 520ms ease both;
+}
+
+.inline-photo img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.inline-photo figcaption {
+  padding: 0.7rem 0.9rem 0.85rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .bullets {
   margin: 1rem 0 0;
   padding-left: 1.1rem;
@@ -504,6 +532,10 @@ h3 {
   }
 
   .hero-points {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-row {
     grid-template-columns: 1fr;
   }
 
