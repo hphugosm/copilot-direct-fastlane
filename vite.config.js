@@ -18,6 +18,8 @@ export default defineConfig({
         zajimavosti: resolve(rootDir, "src/zajimavosti.html"),
         galerie: resolve(rootDir, "src/galerie.html"),
         faq: resolve(rootDir, "src/faq.html"),
+        legalniInformace: resolve(rootDir, "src/legalni-informace.html"),
+        mhd: resolve(rootDir, "src/mhd.html"),
         sources: resolve(rootDir, "src/sources.html")
       }
     }
