@@ -1,0 +1,13 @@
+:root { color-scheme: light; }
+* { box-sizing: border-box; }
+body { margin: 0; font-family: 'Segoe UI', sans-serif; color: #172235; background: #f5f8fc; }
+.site-header { padding: 2rem 1rem 1rem; background: linear-gradient(135deg, #1f6feb, #58a6ff); color: #fff; }
+.site-nav { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+.site-nav a { color: #fff; text-decoration: none; background: rgba(255,255,255,0.2); padding: 0.45rem 0.75rem; border-radius: 999px; }
+.site-nav a:hover, .site-nav a:focus { background: rgba(255,255,255,0.32); }
+.container { max-width: 920px; margin: 0 auto; padding: 1.5rem 1rem 2rem; }
+section { background: #fff; border-radius: 14px; padding: 1.1rem 1.2rem; margin-bottom: 1rem; box-shadow: 0 6px 24px rgba(23,34,53,0.08); }
+ul { padding-left: 1.2rem; }
+details { margin-bottom: 0.7rem; background: #eef4ff; border-radius: 10px; padding: 0.7rem 0.8rem; }
+.site-footer { padding: 1rem; text-align: center; color: #5e6b82; }
+@media (max-width: 640px) { .site-header { padding-top: 1.4rem; } .site-nav { gap: 0.5rem; } }
