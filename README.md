@@ -1,61 +1,30 @@
-# copilot-direct-fastlane
+# Olomouc — multi-page prezentační web
 
-Moderní multi-page web o Olomouci s lokálními fotkami, přehlednými zdroji a deployem na GitHub Pages.
+Moderní multi-page web o Olomouci s reálnými lokálními fotkami, FAQ a doloženými zdroji.
 
-## Co projekt obsahuje
+🔗 **Live:** https://hphugosm.github.io/copilot-direct-fastlane/
 
-- `index.html`, `pamatky.html`, `zajimavosti.html`, `galerie.html`, `faq.html`, `sources.html`
-- lokální fotky v `public/assets/images`
-- sdílený styl v `src/styles.css`
-- Pages workflow v `.github/workflows/pages.yml`
+## Cíl
 
-## Spuštění
+Vytvořit produkční ukázku AI-asistovaného web developmentu: z jednoho zadání vygenerovat kompletní vícestránkový web s konkrétním obsahem (žádné placeholder texty), lokálními fotkami s kredity a nasazením na GitHub Pages.
 
-1. Zkopíruj `.env.example` do `.env`
-2. Dopln GitHub a Supabase údaje
-3. Nainstaluj závislosti
+## Jak to funguje
 
-```bash
-npm install
-```
+- Stránky: `index` (hero, proč Olomouc, CTA) · `pamatky` · `zajimavosti` · `galerie` · `faq` · `sources`
+- Fotky lokálně v `public/assets/images` s alt texty a kredity; přehled zdrojů na `sources.html`
+- Vite build, deploy přes `.github/workflows/pages.yml`; volitelná Supabase vrstva (`supabase/init.sql`, `mvp_items`)
+- Vygenerováno interní AI pipeline (plan → architect → build → review) a doladěno do produkce; dokumentační artefakty pipeline jsou v root/`docs`
 
-4. Spusť web
+## Použité nástroje
 
-```bash
-npm run dev
-```
+Vite · vanilla HTML/CSS/JS · Supabase (volitelně) · GitHub Actions/Pages
 
-## Check
+## Výsledky
 
-```bash
-npm run check
-```
+- 6 obsahových stránek live na GitHub Pages
+- Kompletní zdrojování obsahu i obrázků (sources.html)
 
-## Supabase read/write
+## Lessons learned
 
-1. Spusť SQL z `supabase/init.sql` v Supabase SQL editoru.
-2. Pak spusť:
-
-```bash
-npm run db:init
-```
-
-Skript udělá insert a následný read test do tabulky `mvp_items`.
-
-## GitHub Pages
-
-```bash
-npm run publish
-```
-
-Repo se buildí do `dist` a workflow nasazuje obsah na GitHub Pages.
-
-Aktuální URL:
-
-https://hphugosm.github.io/copilot-direct-fastlane/
-
-## Obrázky
-
-Použité fotografie jsou stažené z Wikimedia Commons a uložené lokálně v `public/assets/images`.
-
-Zdrojový přehled je na stránce `sources.html`.
+- AI pipeline nechává v repu hodně dokumentačních artefaktů — příště je rovnou přesouvat do `docs/`.
+- „Factual mode" s povinnými zdroji výrazně zvedá důvěryhodnost generovaného obsahu.
